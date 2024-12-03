@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alphabet-checker-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: alphabet-checker-api
+  template:
+    metadata:
+      labels:
+        app: alphabet-checker-api
+    spec:
+      containers:
+      - name: alphabet-checker-api
+        image: <your_acr_name>.azurecr.io/alphabet-checker-api:latest
+        ports:
+        - containerPort: 80
